@@ -1,0 +1,90 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <RootNamespace>CompactGUI</RootNamespace>
+    <UseWPF>true</UseWPF>
+    <OptionStrict>Off</OptionStrict>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+    <Version>4.0.0</Version>
+    <Authors>IridiumIO</Authors>
+    <Company>IridiumIO</Company>
+    <Description>GUI for the Windows compact.exe command-line tool.</Description>
+    <Copyright>Copyright © 2025</Copyright>
+    <PackageProjectUrl>https://github.com/IridiumIO/CompactGUI/</PackageProjectUrl>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+ 
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
+    <WarningsAsErrors></WarningsAsErrors>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
+    <WarningsAsErrors></WarningsAsErrors>    
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <Import Include="System.Windows" />
+    <Import Include="System.Windows.Controls" />
+    <Import Include="System.Windows.Data" />
+    <Import Include="System.Windows.Documents" />
+    <Import Include="System.Windows.Input" />
+    <Import Include="System.Windows.Media" />
+    <Import Include="System.Windows.Media.Imaging" />
+    <Import Include="System.Windows.Navigation" />
+    <Import Include="System.Windows.Shapes" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+    <PackageReference Include="Coravel" Version="6.0.2" />
+    <PackageReference Include="diskdetector-net" Version="0.3.2" />
+    <PackageReference Include="Gameloop.Vdf" Version="0.6.2" />
+    <PackageReference Include="IridiumIO.MVVM.VBSourceGenerators" Version="0.6.1" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="9.0.7" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.7" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.7" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.135" />
+    <PackageReference Include="Serilog.Extensions.Logging.File" Version="3.0.0" />
+    <PackageReference Include="ValueConverters" Version="3.1.22" />
+    <PackageReference Include="WPF-UI" Version="4.0.3" />
+    <PackageReference Include="WPF-UI.DependencyInjection" Version="4.0.3" />
+    <PackageReference Include="WPF-UI.Tray" Version="4.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CompactGUI.Core\CompactGUI.Core.csproj" />
+    <ProjectReference Include="..\CompactGUI.Logging\CompactGUI.Logging.csproj" />
+    <ProjectReference Include="..\CompactGUI.Watcher\CompactGUI.Watcher.vbproj" />
+  </ItemGroup>
+
+
+
+  <Target Name="RenamePublishedExe" AfterTargets="Publish" Condition="'$(IsMonolithic)' == 'true'">
+    <Move SourceFiles="$(PublishDir)CompactGUI.exe" DestinationFiles="$(PublishDir)CompactGUI.mono.exe" />
+
+  </Target>
+  
+  <PropertyGroup>
+    <FinalPublishDir>$(ProjectDir)bin\publish\FinalOutput\</FinalPublishDir>
+  </PropertyGroup>
+
+  <Target Name="MovePublishedFiles" AfterTargets="Publish">
+    <Message Text="Moving published files to FinalOutput..." Importance="high" />
+    
+    <ItemGroup>
+        <PublishedFiles Include="$(PublishDir)**\*" />
+    </ItemGroup>
+
+    <Copy SourceFiles="@(PublishedFiles)" DestinationFolder="$(FinalPublishDir)" SkipUnchangedFiles="true" />
+  </Target>
+
+  
+</Project>
