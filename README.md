@@ -98,6 +98,9 @@ CompactGUI 是一个 Windows 文件压缩工具的图形界面，使用 Windows 
 - **原作者**: IridiumIO
 - **原始仓库**: https://github.com/IridiumIO/CompactGUI/
 - **许可证**: 请查看原始项目的 LICENSE 文件
+##
+
+[联系本作者](https://yuexuan6699.dpdns.org/contact.html)
 
 ## 汉化日期
 
