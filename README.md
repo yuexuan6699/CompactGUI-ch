@@ -15,6 +15,11 @@ CompactGUI 是一个 Windows 文件压缩工具的图形界面，使用 Windows 
 - **访问中文版 [GitHub Releases](https://github.com/yuexuan6699/CompactGUI-ch/releases) 下载最新版本**
 - **访问原版 [GitHub Releases](https://github.com/IridiumIO/CompactGUI/releases) 下载最新版本**
 
+## 作者
+
+苏月晅
+[联系本作者](https://yuexuan6699.dpdns.org/contact.html)
+
 ## 功能特点
 
 - **透明压缩**：文件可以在计算机上正常使用，就像什么都没发生一样，不需要解压缩即可直接使用
