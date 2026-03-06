@@ -1,4 +1,4 @@
-﻿﻿Imports System.Globalization
+﻿Imports System.Globalization
 
 Public Class DecimalToPercentageConverter : Implements IValueConverter
     Public Function Convert(value As Object, targetType As Type, parameter As Object, culture As CultureInfo) As Object Implements IValueConverter.Convert

@@ -1,4 +1,4 @@
-﻿
+
 Imports System.ComponentModel
 Imports System.Xml
 
@@ -106,10 +106,10 @@ Public NotInheritable Class SettingsViewModel : Inherits ObservableObject
         SettingsLog.AddingToContextMenus(Application.GetService(Of ILogger(Of Settings)))
         Await Task.Run(Sub()
                            Try
-                               Microsoft.Win32.Registry.SetValue("HKEY_CURRENT_USER\Software\Classes\Directory\shell\CompactGUI", "", "Compress Folder")
+                               Microsoft.Win32.Registry.SetValue("HKEY_CURRENT_USER\Software\Classes\Directory\shell\CompactGUI", "", "压缩文件夹")
                                Microsoft.Win32.Registry.SetValue("HKEY_CURRENT_USER\Software\Classes\Directory\shell\CompactGUI", "Icon", Environment.ProcessPath)
                                Microsoft.Win32.Registry.SetValue("HKEY_CURRENT_USER\Software\Classes\Directory\shell\CompactGUI\command", "", Environment.ProcessPath & " " & """%1""")
-                               Microsoft.Win32.Registry.SetValue("HKEY_CURRENT_USER\Software\Classes\Directory\Background\shell\CompactGUI", "", "Compress Folder")
+                               Microsoft.Win32.Registry.SetValue("HKEY_CURRENT_USER\Software\Classes\Directory\Background\shell\CompactGUI", "", "压缩文件夹")
                                Microsoft.Win32.Registry.SetValue("HKEY_CURRENT_USER\Software\Classes\Directory\Background\shell\CompactGUI", "Icon", Environment.ProcessPath)
                                Microsoft.Win32.Registry.SetValue("HKEY_CURRENT_USER\Software\Classes\Directory\Background\shell\CompactGUI\command", "", Environment.ProcessPath & " " & """%V""")
                                SettingsLog.AddingToContextMenusSuccess(Application.GetService(Of ILogger(Of Settings)))

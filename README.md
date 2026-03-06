@@ -4,6 +4,17 @@
 
 CompactGUI 是一个 Windows 文件压缩工具的图形界面，使用 Windows 内置的 compact.exe 命令来压缩文件夹，节省磁盘空间。它可以透明压缩您的游戏和程序，在不影响其功能的情况下减少它们占用的空间。
 
+## 安装方法
+
+### 前提条件
+- Windows 10/11 操作系统
+- [.NET 9.0 Desktop Runtime](https://dotnet.microsoft.com/zh-cn/download/dotnet/thank-you/runtime-desktop-9.0.4-windows-x64-installer)
+
+### 安装方式
+
+1. **从 GitHub Releases 下载**
+   访问 [GitHub Releases](https://github.com/IridiumIO/CompactGUI/releases) 下载最新版本
+
 ## 功能特点
 
 - **透明压缩**：文件可以在计算机上正常使用，就像什么都没发生一样，不需要解压缩即可直接使用
@@ -29,22 +40,6 @@ CompactGUI 是一个 Windows 文件压缩工具的图形界面，使用 Windows 
 - 所有错误提示消息
 - Snackbar 通知消息
 - 文件夹验证错误信息
-
-## 安装方法
-
-### 前提条件
-- Windows 10/11 操作系统
-- [.NET 9.0 Desktop Runtime](https://dotnet.microsoft.com/zh-cn/download/dotnet/thank-you/runtime-desktop-9.0.4-windows-x64-installer)
-
-### 安装方式
-
-1. **从 GitHub Releases 下载**
-   访问 [GitHub Releases](https://github.com/IridiumIO/CompactGUI/releases) 下载最新版本
-
-2. **使用 Winget 安装**
-   ```powershell
-   winget install CompactGUI
-   ```
 
 ## 使用方法
 

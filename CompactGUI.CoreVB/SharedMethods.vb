@@ -1,4 +1,4 @@
-﻿﻿Imports System.IO
+﻿Imports System.IO
 Imports System.Runtime.CompilerServices
 Imports System.Runtime.InteropServices
 Imports System.Text
@@ -35,21 +35,21 @@ Public Module SharedMethods
             Case FolderVerificationResult.Valid
                 Return ""
             Case FolderVerificationResult.DirectoryDoesNotExist
-                Return "目录不存在"
+                Return "Directory does not exist"
             Case FolderVerificationResult.SystemDirectory
-                Return "无法压缩系统目录"
+                Return "Cannot compress system directory"
             Case FolderVerificationResult.RootDirectory
-                Return "无法压缩根目录"
+                Return "Cannot compress root directory"
             Case FolderVerificationResult.DirectoryEmptyOrUnauthorized
-                Return "此目录为空或您没有权限访问其文件。"
+                Return "This directory is either empty or you are not authorized to access its files."
             Case FolderVerificationResult.OneDriveFolder
-                Return "无法压缩与 OneDrive 同步的文件，因为它们使用不同的存储结构"
+                Return "Files synced with OneDrive cannot be compressed as they use a different storage structure"
             Case FolderVerificationResult.NonNTFSDrive
-                Return "无法压缩非 NTFS 驱动器上的目录"
+                Return "Cannot compress a directory on a non-NTFS drive"
             Case FolderVerificationResult.InsufficientPermission
-                Return "访问此文件夹的权限不足。"
+                Return "Insufficient permission to access this folder."
             Case Else
-                Return "未知错误"
+                Return "Unknown error"
         End Select
     End Function
 

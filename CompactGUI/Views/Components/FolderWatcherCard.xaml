@@ -77,9 +77,9 @@
                     Margin="0,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"
                     Orientation="Horizontal">
 
-            <TextBlock Text="{Binding Watcher.LastAnalysed, StringFormat=上次分析 {0}, Converter={StaticResource RelativeDateConverter}}"
+            <TextBlock Text="{Binding Watcher.LastAnalysed, StringFormat=上次分析：{0}, Converter={StaticResource RelativeDateConverter}}"
                        Margin="0,-2,0,0" VerticalAlignment="Center"
-                       d:Text="上次分析: 刚刚" FontSize="14" FontWeight="SemiBold" Foreground="#40FFFFFF" />
+                       d:Text="上次分析：刚刚" FontSize="14" FontWeight="SemiBold" Foreground="#40FFFFFF" />
             <Grid Width="45" Height="25"
                   VerticalAlignment="Center">
                 <ui:Button Background="Transparent" BorderThickness="0" Margin="2 0"
@@ -105,7 +105,7 @@
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right">
 
             <Button Content="取消后台压缩"  Command="{Binding CancelBackgroundingCommand}" Visibility="{Binding Watcher.IsRunning, Converter={StaticResource BooleanToVisibilityConverter}}"/>
-            <Button Content="立即全部压缩"  Command="{Binding RunWatcherCommand}" Visibility="{Binding Watcher.IsRunning, Converter={StaticResource BooleanToInverseVisibilityConverter}}"/>
+            <Button Content="立即压缩全部"  Command="{Binding RunWatcherCommand}" Visibility="{Binding Watcher.IsRunning, Converter={StaticResource BooleanToInverseVisibilityConverter}}"/>
         </StackPanel>
        
 
@@ -228,11 +228,11 @@
                                 </TextBlock.ToolTip>
                             </TextBlock>
                             <TextBlock x:Name="DecayedText"
-                                       Text="{Binding DecayPercentage, StringFormat={}{0}% 已衰减, Mode=OneWay, Converter={StaticResource DecimalToPercentageConverter}}"
+                                       Text="{Binding DecayPercentage, StringFormat='{}{0:F0}% 已衰减', Mode=OneWay, Converter={StaticResource DecimalToPercentageConverter}}"
                                        Margin="0,-2,0,0" HorizontalAlignment="Right" VerticalAlignment="Top"
                                        d:Text="7% 已衰减" FontSize="12" Foreground="#FFBFC7CE" />
                             <TextBlock x:Name="SavedText"
-                                       Text="{Binding SavedSpace, StringFormat={}{0} 已节省, Mode=OneWay, Converter={StaticResource BytesToReadableConverter}, ConverterParameter=0}"
+                                       Text="{Binding SavedSpace, StringFormat='{}{0:F0} 已节省', Mode=OneWay, Converter={StaticResource BytesToReadableConverter}, ConverterParameter=0}"
                                        Margin="0,-2,0,0" HorizontalAlignment="Right" VerticalAlignment="Top"
                                        d:Text="39GB 已节省" FontSize="12" Foreground="#FFBFC7CE" Visibility="Collapsed" />
                             <ProgressBar Width="160" Height="6"
@@ -246,14 +246,14 @@
 
                             <Grid Margin="0,45,0,0">
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="上次压缩:"
+                                    <TextBlock Text="上次压缩："
                                                Margin="0,0,10,0"
                                                FontSize="12" Foreground="#FF8B9FB3" />
                                     <TextBlock Text="{Binding LastCompressedDate, Converter={StaticResource RelativeDateConverter}}"
                                                d:Text="fds" FontSize="12" Foreground="#FF8B9FB3" />
                                 </StackPanel>
                                 <StackPanel Margin="0,20,0,-3" Orientation="Horizontal">
-                                    <TextBlock Text="上次修改:"
+                                    <TextBlock Text="上次修改："
                                                Margin="0,0,27,0"
                                                FontSize="12" Foreground="#FF8B9FB3" />
                                     <TextBlock Text="{Binding LastSystemModifiedDate, Converter={StaticResource RelativeDateConverter}}"
@@ -270,7 +270,7 @@
                                     <ui:SymbolIcon FontSize="14" Symbol="Delete16" />
                                     <Button.ToolTip>
                                         <ToolTip ToolTipService.InitialShowDelay="100">
-                                            <TextBlock Text="从监视列表移除"
+                                            <TextBlock Text="从监视列表中移除"
                                                        FontSize="12" Foreground="#FFBFC7CE" TextWrapping="NoWrap" />
                                         </ToolTip>
                                     </Button.ToolTip>

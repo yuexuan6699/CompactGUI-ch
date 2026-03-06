@@ -168,7 +168,7 @@ Partial Public Class Application
                 End Using
             End Using
         Else
-            MessageBox.Show("An instance of CompactGUI is already running")
+            MessageBox.Show("CompactGUI 的一个实例已经在运行")
         End If
         Current.Shutdown()
     End Sub

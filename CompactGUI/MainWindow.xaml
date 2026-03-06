@@ -1,4 +1,4 @@
-﻿﻿<ui:FluentWindow x:Class="MainWindow"
+<ui:FluentWindow x:Class="MainWindow"
                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                  xmlns:bh="http://schemas.microsoft.com/xaml/behaviors"
@@ -62,7 +62,6 @@
                     </ui:NavigationViewItem.Icon>
                 </ui:NavigationViewItem>
 
-                <!-- 压缩数据库导航项已隐藏，因为会导致程序崩溃
                 <ui:NavigationViewItem Content="压缩数据库"
                                        Margin="15,2,15,10"
                                        NavigationCacheMode="Disabled"
@@ -72,7 +71,6 @@
                         <ui:SymbolIcon Filled="False" Symbol="Database16" />
                     </ui:NavigationViewItem.Icon>
                 </ui:NavigationViewItem>
-                -->
 
             </ui:NavigationView.MenuItems>
 

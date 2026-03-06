@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     
@@ -65,7 +65,11 @@
     <ProjectReference Include="..\CompactGUI.Watcher\CompactGUI.Watcher.vbproj" />
   </ItemGroup>
 
-
+  <ItemGroup>
+    <Reference Include="FunctionalConverters">
+      <HintPath>..\..\FunctionalConverters\FunctionalConverters\bin\Release\net6.0-windows\FunctionalConverters.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 
   <Target Name="RenamePublishedExe" AfterTargets="Publish" Condition="'$(IsMonolithic)' == 'true'">
     <Move SourceFiles="$(PublishDir)CompactGUI.exe" DestinationFiles="$(PublishDir)CompactGUI.mono.exe" />

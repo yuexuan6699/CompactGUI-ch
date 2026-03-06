@@ -1,4 +1,4 @@
-﻿﻿<UserControl x:Class="FolderView"
+<UserControl x:Class="FolderView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -119,7 +119,6 @@
                                Foreground="{Binding Folder.FolderActionState, Converter={StaticResource FolderStatusToColorConverter}}"
                                Symbol="Circle24" />
                 <ui:TextBlock Margin="10 1 10 0" Foreground="{StaticResource TextFillColorTertiaryBrush}" VerticalAlignment="Center" FontSize="14">
-                    <!--<Run Text="Status: "/>-->
                     <Run Text="{Binding Folder.FolderActionState, Converter={StaticResource FolderStatusToStringConverter}}" Foreground="#30FFFFFF" />
                 </ui:TextBlock>
             </StackPanel>

@@ -1,4 +1,4 @@
-﻿Imports System.IO
+Imports System.IO
 Imports System.Text.Json
 
 Imports CompactGUI.Core.Settings
@@ -34,7 +34,7 @@ Public Class SettingsService : Implements ISettingsService
 
             AppSettings = New Settings With {.SettingsVersion = SettingsVersion, .NonCompressableList = skipList}
 
-            Dim msgError As New Wpf.Ui.Controls.ContentDialog With {.Title = $"New Settings Version {SettingsVersion} Detected", .Content = "Your settings have been reset to their default to accommodate the update", .CloseButtonText = "OK"}
+            Dim msgError As New Wpf.Ui.Controls.ContentDialog With {.Title = $"检测到新的设置版本 {SettingsVersion}", .Content = "为了适应更新，您的设置已重置为默认值", .CloseButtonText = "确定"}
             msgError.ShowAsync()
 
         End If
@@ -77,7 +77,7 @@ Public Class SettingsService : Implements ISettingsService
         Catch ex As Exception
             validatedSettings = New Settings With {.SettingsVersion = SettingsVersion}
 
-            Dim msgError As New Wpf.Ui.Controls.ContentDialog With {.Title = $"Corrupted Settings File Detected", .Content = "Your settings have been reset to their default.", .CloseButtonText = "OK"}
+            Dim msgError As New Wpf.Ui.Controls.ContentDialog With {.Title = $"检测到损坏的设置文件", .Content = "您的设置已重置为默认值。", .CloseButtonText = "确定"}
             msgError.ShowAsync()
 
 

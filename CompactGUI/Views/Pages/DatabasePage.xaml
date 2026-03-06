@@ -1,4 +1,4 @@
-﻿﻿<UserControl x:Class="DatabasePage"
+<UserControl x:Class="DatabasePage"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -17,22 +17,19 @@
         
         
         
-        <TextBlock Text="数据库结果"
+        <TextBlock Text="压缩数据库结果"
              Grid.Row="0"
              VerticalAlignment="Top"
              FontSize="26"
              Foreground="{StaticResource CardForeground}"
              Visibility="Visible" />
 
-        <TextBlock Grid.Row="2" Text="{Binding LastUpdatedDatabase, StringFormat=最后获取: {0:yyyy年MM月dd日 HH:mm:ss}}" HorizontalAlignment="Right" VerticalAlignment="Top" Foreground="#10FFFFFF" Margin="0 0 0 0 " FontSize="12"/>
+        <TextBlock Grid.Row="2" Text="{Binding LastUpdatedDatabase, StringFormat=上次获取：{0:dd MMM yyyy HH:mm:ss}}" HorizontalAlignment="Right" VerticalAlignment="Top" Foreground="#10FFFFFF" Margin="0 0 0 0 " FontSize="12"/>
 
         <TextBlock Grid.Row="1"
            HorizontalAlignment="Left" VerticalAlignment="Center"
            FontSize="20"
            Foreground="{StaticResource CardForegroundDisabled}">
-            <!--<Run Text="{Binding DatabaseSubmissionsCount, Mode=OneWay}" />
-            <Run Text="提交" />
-            <Run Text="跨越" />-->
             <Run Text="{Binding DatabaseGamesCount, Mode=OneWay }" />  
             <Run Text="个游戏" />
         </TextBlock>
@@ -44,13 +41,13 @@
             </Grid.ColumnDefinitions>
 
             
-            <!-- Search Box -->
+            <!-- 搜索框 -->
             <ui:TextBox VerticalAlignment="Center"
                FontSize="14" Width="250"
                PlaceholderText="按游戏名称或 SteamID 搜索..."
                Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" />
 
-            <!-- Sorting Menu -->
+            <!-- 排序菜单 -->
             <ui:DropDownButton Grid.Column="1" Margin="20 0 0 0" Foreground="{StaticResource LabelForeground}" Height="36" VerticalAlignment="Center" HorizontalAlignment="Stretch">
                 <TextBlock Text="排序方式"/>
                 <ui:DropDownButton.Flyout>
@@ -78,7 +75,7 @@
            Height="1"
            VerticalAlignment="Bottom" />
        
-        <!-- Results ListView -->
+        <!-- 结果列表 -->
         <ListView Grid.Row="3" Background="Transparent" VirtualizingPanel.VirtualizationMode="Recycling"
                   ItemsSource="{Binding FilteredResults}"
                   Margin="-20 10" BorderBrush="Transparent" VirtualizingPanel.ScrollUnit="Pixel" 
@@ -160,11 +157,11 @@
                                             <ColumnDefinition Width="130"/>
                                         </Grid.ColumnDefinitions>
 
-                                        <TextBlock Text="模式" FontWeight="SemiBold" Foreground="{StaticResource CardForegroundDisabled}"/>
+                                        <TextBlock Text="压缩模式" FontWeight="SemiBold" Foreground="{StaticResource CardForegroundDisabled}"/>
                                         <TextBlock Grid.Column="1" Text="压缩前" FontWeight="SemiBold" HorizontalAlignment="Right" Foreground="{StaticResource CardForegroundDisabled}"/>
                                         <TextBlock Grid.Column="2" Text="压缩后" FontWeight="SemiBold" HorizontalAlignment="Right" Foreground="{StaticResource CardForegroundDisabled}"/>
                                         <TextBlock Grid.Column="3" Text="节省" FontWeight="SemiBold" HorizontalAlignment="Right" Foreground="{StaticResource CardForegroundDisabled}"/>
-                                        <TextBlock Grid.Column="4" Text="总结果" FontWeight="SemiBold" HorizontalAlignment="Right" Foreground="{StaticResource CardForegroundDisabled}"/>
+                                        <TextBlock Grid.Column="4" Text="提交数" FontWeight="SemiBold" HorizontalAlignment="Right" Foreground="{StaticResource CardForegroundDisabled}"/>
 
                                     </Grid>
 
@@ -235,10 +232,10 @@
                                
                             </StackPanel>
 
-                            <!-- Poorly Compressed Extensions -->
+                            <!-- 无法压缩的文件类型 -->
                             <StackPanel Orientation="Vertical" Margin="0,10,0,0" 
                                         Visibility="Collapsed">
-                                <TextBlock Text="UNCOMPRESSABLE FILETYPES" FontWeight="SemiBold" Margin="0,0,0,4"/>
+                                <TextBlock Text="无法压缩的文件类型" FontWeight="SemiBold" Margin="0,0,0,4"/>
                                 <ItemsControl ItemsSource="{Binding PoorlyCompressedExtensions}">
                                     <ItemsControl.ItemsPanel>
                                         <ItemsPanelTemplate>

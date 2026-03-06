@@ -1,4 +1,4 @@
-﻿﻿Imports CommunityToolkit.Mvvm.Input
+Imports CommunityToolkit.Mvvm.Input
 
 Imports CompactGUI.Core.SharedMethods
 Imports CompactGUI.Logging
@@ -46,7 +46,7 @@ Public Class CustomSnackBarService
             messageString &= $"{InvalidFolders(i)}: {GetFolderVerificationMessage(InvalidMessages(i))}" & vbCrLf
         Next
 
-        Show("无效文件夹", messageString, Wpf.Ui.Controls.ControlAppearance.Danger, Nothing, TimeSpan.FromSeconds(10))
+        Show("Invalid Folders", messageString, Wpf.Ui.Controls.ControlAppearance.Danger, Nothing, TimeSpan.FromSeconds(10))
 
     End Sub
 
@@ -56,7 +56,7 @@ Public Class CustomSnackBarService
             .Command = New RelayCommand(Sub() RunAsAdmin(folderName)),
             .Margin = New Thickness(-3, 10, 0, 0)
         }
-        ShowCustom(button, "访问此文件夹的权限不足。", ControlAppearance.Danger, timeout:=TimeSpan.FromSeconds(60))
+        ShowCustom(button, "权限不足，无法访问此文件夹。", ControlAppearance.Danger, Nothing, TimeSpan.FromSeconds(60))
     End Sub
 
     Public Sub ShowUpdateAvailable(newVersion As String, isPreRelease As Boolean)
@@ -65,7 +65,7 @@ Public Class CustomSnackBarService
 
         ' Show the custom snackbar
         SnackbarServiceLog.ShowUpdateAvailable(logger, newVersion, isPreRelease)
-        ShowCustom(textBlock, $"有可用更新 ▸ 版本 {newVersion}", If(isPreRelease, ControlAppearance.Info, ControlAppearance.Success), timeout:=TimeSpan.FromSeconds(10))
+        ShowCustom(textBlock, $"可用更新 ▸ 版本 {newVersion}", If(isPreRelease, ControlAppearance.Info, ControlAppearance.Success), timeout:=TimeSpan.FromSeconds(10))
 
         Dim handler As MouseButtonEventHandler = Nothing
         Dim closedHandler As TypedEventHandler(Of Snackbar, RoutedEventArgs) = Nothing
@@ -86,12 +86,12 @@ Public Class CustomSnackBarService
     End Sub
 
     Public Sub ShowFailedToSubmitToWiki()
-        Show("提交到 wiki 失败", "请检查您的网络连接后重试", Wpf.Ui.Controls.ControlAppearance.Danger, Nothing, TimeSpan.FromSeconds(5))
+        Show("提交到 wiki 失败", "请检查您的网络连接并重试", Wpf.Ui.Controls.ControlAppearance.Danger, Nothing, TimeSpan.FromSeconds(5))
         SnackbarServiceLog.ShowFailedToSubmitToWiki(logger)
     End Sub
 
     Public Sub ShowSubmittedToWiki(steamsubmitdata As SteamSubmissionData, compressionMode As Integer)
-        Show("已提交到 wiki", $"UID: {steamsubmitdata.UID}{vbCrLf}游戏: {steamsubmitdata.GameName}{vbCrLf}SteamID: {steamsubmitdata.SteamID}{vbCrLf}压缩: {[Enum].GetName(GetType(Core.WOFCompressionAlgorithm), Core.WOFHelper.WOFConvertCompressionLevel(compressionMode))}", Wpf.Ui.Controls.ControlAppearance.Success, Nothing, TimeSpan.FromSeconds(10))
+        Show("已提交到 wiki", $"UID: {steamsubmitdata.UID}{vbCrLf}游戏：{steamsubmitdata.GameName}{vbCrLf}SteamID: {steamsubmitdata.SteamID}{vbCrLf}压缩：{[Enum].GetName(GetType(Core.WOFCompressionAlgorithm), Core.WOFHelper.WOFConvertCompressionLevel(compressionMode))}", Wpf.Ui.Controls.ControlAppearance.Success, Nothing, TimeSpan.FromSeconds(10))
         SnackbarServiceLog.ShowSubmittedToWiki(logger, steamsubmitdata.UID, steamsubmitdata.GameName, steamsubmitdata.SteamID, steamsubmitdata.CompressionMode)
     End Sub
 
@@ -113,7 +113,7 @@ Public Class CustomSnackBarService
 
     Public Sub ShowDirectStorageWarning(displayName As String)
         Show(displayName,
-            "此游戏使用 DirectStorage 技术。如果您正在使用此功能，则不应压缩此游戏。",
+            "此游戏使用了 DirectStorage 技术。如果您正在使用此功能，则不应压缩此游戏。",
             Wpf.Ui.Controls.ControlAppearance.Info,
             Nothing,
             TimeSpan.FromSeconds(20))

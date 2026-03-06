@@ -1,4 +1,4 @@
-﻿Imports System.Threading
+Imports System.Threading
 
 Imports CommunityToolkit.Mvvm.ComponentModel
 Imports CommunityToolkit.Mvvm.Input
@@ -94,7 +94,7 @@ Public NotInheritable Class WatcherViewModel : Inherits ObservableObject
     Public Async Function AddFolderAsync(folderPath As String) As Task(Of CompressableFolder)
 
         If GetInvalidFolders({folderPath}).InvalidFolders.Count > 0 Then
-            Dim msgError As New ContentDialog With {.Title = "Invalid Folder", .Content = $"{folderPath}", .CloseButtonText = "OK"}
+            Dim msgError As New ContentDialog With {.Title = "无效的文件夹", .Content = $"{folderPath}", .CloseButtonText = "确定"}
             Await msgError.ShowAsync()
             Return Nothing
         End If
