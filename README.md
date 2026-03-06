@@ -13,7 +13,8 @@ CompactGUI 是一个 Windows 文件压缩工具的图形界面，使用 Windows 
 ### 安装方式
 
 1. **从 GitHub Releases 下载**
-   访问 [GitHub Releases](https://github.com/IridiumIO/CompactGUI/releases) 下载最新版本
+   访问中文版 [GitHub Releases](https://github.com/yuexuan6699/CompactGUI-ch/releases) 下载最新版本
+   访问原版 [GitHub Releases](https://github.com/IridiumIO/CompactGUI/releases) 下载最新版本
 
 ## 功能特点
 
